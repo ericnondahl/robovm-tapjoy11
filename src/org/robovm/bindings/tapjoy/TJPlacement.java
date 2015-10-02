@@ -17,9 +17,9 @@ public class TJPlacement extends NSObject {
 	@Method(selector = "placementWithName:delegate:")
 	private static native @Pointer long fromNameDelegate(String name, TJPlacementDelegate delegate);
 	
-	public TJPlacement(String name, TJPlacementDelegateAdapter delegate) {
-		super((SkipInit)null);
-		initObject(fromNameDelegate(name, delegate));
+	public TJPlacement(String name, TJPlacementDelegate delegate) {
+		super(fromNameDelegate(name, delegate));
+		retain(getHandle());
 	}
 	
 	/**
